@@ -1,0 +1,44 @@
+<main class="main">
+    <h2 class="isolation-title"><strong>{{ mostIsolatedCountry }}</strong> is the most isolated country with an
+        isolation degree of <strong>{{ isolationDegree }}</strong>.</h2>
+
+    <h2 class="section-title">Agents</h2>
+
+    <div class="table-container">
+        <ul class="agents-list">
+            <li class="table-header">
+                <div class="header-id">
+                    Agent ID
+                </div>
+                <div class="header-country">
+                    Country
+                </div>
+                <div class="header-address">
+                    Address
+                </div>
+                <div class="header-date">
+                    Date
+                </div>
+            </li>
+            <li class="agent-row" ng-repeat="agent in agentsSortedByTimestamp">
+                <div class="agent-id">
+                    {{ agent.agent }}
+                </div>
+                <div class="agent-country">
+                    {{ agent.country }}
+                </div>
+                <div class="agent-address">
+                    {{ agent.address }}
+                </div>
+                <div class="agent-date">
+                    {{ agent.date }}
+                </div>
+            </li>
+
+            <li class="table-footer">
+                <p class="total-missions">{{ agentsSortedByTimestamp.length }} missions</p>
+            </li>
+        </ul>
+    </div>
+</main>
+

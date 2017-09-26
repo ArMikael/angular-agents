@@ -1,0 +1,140 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Agents component styles */
+.main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.isolation-title {
+  font-weight: normal;
+}
+
+.table-container {
+  padding: 10px;
+  background-color: #FAFAFA;
+}
+
+.agents-list {
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.table-header,
+.agent-row,
+.table-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table-header {
+  font-weight: 600;
+  border-bottom: 2px solid #DDDDDD;
+  font-size: 12px;
+}
+
+.table-header div {
+  margin: 5px 0;
+  padding: 0 16px;
+  line-height: 26px;
+  border-right: 1px solid #DDDDDD;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agent-row div {
+  padding: 0 16px;
+  line-height: 30px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-header div:last-child {
+  border: none;
+}
+
+.table-header,
+.table-footer {
+  height: 36px;
+  line-height: 36px;
+  background-color: #FAFAFA;
+}
+
+.table-footer {
+  display: flex;
+  padding: 0 20px;
+  justify-content: flex-end;
+  border-top: 1px solid #DDDDDD;
+}
+
+.total-missions {
+  margin: 0;
+}
+
+.agent-row {
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.header-id,
+.agent-id {
+  display: inline-block;
+  width: 12%;
+}
+
+.header-country,
+.agent-country {
+  display: inline-block;
+  width: 15%;
+}
+
+.header-address,
+.agent-address {
+  display: inline-block;
+  width: 45%;
+}
+
+.header-date,
+.agent-date {
+  display: inline-block;
+  width: 28%;
+}
