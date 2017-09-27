@@ -32,30 +32,41 @@
             });
 
 
+            // function findMostIsoldatedCountry() {
+            //     $scope.sortedIsolatedCountries = $scope.isolatedCountries.sort();
+            //
+            //     let currentNumber = 0;
+            //     let maximumCountryName = '';
+            //     let maximumCount = 0;
+            //
+            //     $scope.sortedIsolatedCountries.forEach((country, index, arrCountries) => {
+            //         if (!!arrCountries[index+1] && country === arrCountries[index+1]) {
+            //             currentNumber++;
+            //         } else {
+            //             if (currentNumber > maximumCount) {
+            //                 maximumCount = currentNumber;
+            //                 maximumCountryName = country;
+            //             }
+            //
+            //             currentNumber = 1;
+            //         }
+            //     });
+            //
+            //     $scope.mostIsolatedCountry = maximumCountryName;
+            //     $scope.isolationDegree = maximumCount;
+            //
+            //     console.log('isolated countries: ', $scope.sortedIsolatedCountries);
+            // }
+
             function findMostIsoldatedCountry() {
-                $scope.sortedIsolatedCountries = $scope.isolatedCountries.sort();
+                let reducedCountries = $scope.isolatedCountries.reduce(function(prevArr, nextVal){
+                    prevArr[nextVal] = (prevArr[nextVal] + 1) || 1;
+                    return prevArr;
+                },{});
 
-                let currentNumber = 0;
-                let maximumCountryName = '';
-                let maximumCount = 0;
-
-                $scope.sortedIsolatedCountries.forEach((country, index, arrCountries) => {
-                    if (!!arrCountries[index+1] && country === arrCountries[index+1]) {
-                        currentNumber++;
-                    } else {
-                        if (currentNumber > maximumCount) {
-                            maximumCount = currentNumber;
-                            maximumCountryName = country;
-                        }
-
-                        currentNumber = 1;
-                    }
+                return Object.keys(reducedCountries).sort(function(a,b){
+                    return reducedCountries[b]-reducedCountries[a]
                 });
-
-                $scope.mostIsolatedCountry = maximumCountryName;
-                $scope.isolationDegree = maximumCount;
-
-                console.log('isolated countries: ', $scope.sortedIsolatedCountries);
             }
 
 
@@ -84,7 +95,7 @@
                     }
                 });
 
-                findMostIsoldatedCountry();
+                $scope.sortedIsolatedCountries = findMostIsoldatedCountry();
             }
 
             checkIsolatedAgents();
